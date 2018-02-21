@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Getvalues from './component/GetVale/getvalue.js';
+import DisplayValue from './component/displayValue/displayValue.js';
 import './App.css';
 
 class App extends Component {
@@ -78,7 +78,7 @@ class App extends Component {
             <div className="top">
               <button onClick={this.clear} className="clear"> C </button>
               <div class="screen">
-                <Getvalues current={this.state.current} total={this.state.total} />
+                <DisplayValue current={this.state.current} total={this.state.total} />
               </div>
             </div>
             <div className="keys">
