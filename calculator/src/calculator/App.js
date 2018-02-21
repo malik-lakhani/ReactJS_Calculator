@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Getvalues from './component/getvalue.js';
+import Getvalues from './component/GetVale/getvalue.js';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
       };
   }
 
+  // Calculate the value according to operator
   calculate = () => {
     const total = parseInt(this.state.total);
     const current = parseInt(this.state.current);
@@ -34,6 +35,7 @@ class App extends Component {
      }
   };
 
+  // to store the operator
   operation = (e) => {
     const operator = e.target.attributes.getNamedItem('value').value;
     this.setState({
@@ -43,6 +45,7 @@ class App extends Component {
     });
   }
 
+  // Display the total result
   getResult = () => {
     this.setState({
        total: this.calculate(),
@@ -50,13 +53,15 @@ class App extends Component {
     });
   }
 
-   getValue = (e) => {
+  // geet the value from buttons
+  getValue = (e) => {
     const value = e.target.attributes.getNamedItem('value').value;
     this.setState(() => {
       return {current: value};
     });
   }
 
+  // All value set to 0
   clear = () => {
     this.setState({
       total: 0,
