@@ -1,26 +1,16 @@
 {
-  "name": "ReactJS_Calculator",
+  "name": "React_Calculator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lint": "^1.1.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "ESLINT_ARGS='--quiet' make lint"
-  },
-  "devDependencies": {
-    "eslint": "^2.13.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^2.9.0",
-    "pre-commit": "^1.2.2"
-  },
-  "pre-commit": [
-    "lint"
-  ],
-  "author": "Deep Govani",
-  "license": "ISC"
+    "eject": "react-scripts eject"
+  }
 }
