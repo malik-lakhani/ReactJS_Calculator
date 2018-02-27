@@ -7,10 +7,21 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-react": "^7.7.0",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "ESLINT_ARGS='--quiet' make lint"
   }
 }
