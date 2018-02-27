@@ -17,6 +17,7 @@ class App extends Component {
     const total = parseFloat(this.state.total);
     const current = parseFloat(this.state.current);
     const operator = this.state.operator;
+    let divide;
     switch (operator) {
       case '+':
         return total + current;
@@ -28,7 +29,12 @@ class App extends Component {
         return total * current;
         break;
       case '/':
-        return total / current;
+        divide = total / current;
+        if (!isNaN(divide)) {
+          return divide;
+        } else {
+          return 'Error';
+        }
         break;
       default:
         return 0;
