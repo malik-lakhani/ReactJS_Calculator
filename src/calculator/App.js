@@ -4,12 +4,12 @@ import './App.css';
 
 class App extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        current: 0,
-        total: 0,
-        operator: ''
-      };
+    super(props);
+    this.state = {
+      current: 0,
+      total: 0,
+      operator: ''
+    };
   }
 
   // Calculate the value according to operator
@@ -17,39 +17,39 @@ class App extends Component {
     const total = parseInt(this.state.total);
     const current = parseInt(this.state.current);
     const operator = this.state.operator;
-    switch(operator){
-       case "+":
-          return total + current;
-          break;
-       case "-":
-          return  total - current;
-          break;
-       case "*":
-          return  total * current;
-          break;
-       case "/":
-          return  total / current;
-          break;
-       default:
-          return 0;
-     }
+    switch (operator) {
+      case '+':
+        return total + current;
+        break;
+      case '-':
+        return total - current;
+        break;
+      case '*':
+        return total * current;
+        break;
+      case '/':
+        return total / current;
+        break;
+      default:
+        return 0;
+    }
   };
 
   // to store the operator
   operation = (e) => {
     const operator = e.target.attributes.getNamedItem('value').value;
     this.setState({
-       total: this.state.current,
-       current: 0,
-       operator: operator
+      total: this.state.current,
+      current: 0,
+      operator: operator
     });
   }
 
   // Display the total result
   getResult = () => {
     this.setState({
-       total: this.calculate(),
-       current: 0
+      total: this.calculate(),
+      current: 0
     });
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
   getValue = (e) => {
     const value = e.target.attributes.getNamedItem('value').value;
     this.setState(() => {
-      return {current: value};
+      return { current: value };
     });
   }
 
@@ -77,7 +77,7 @@ class App extends Component {
           <div id="calculator">
             <div className="top">
               <button onClick={this.clear} className="clear"> C </button>
-              <div class="screen">
+              <div className="screen">
                 <DisplayValue current={this.state.current} total={this.state.total} />
               </div>
             </div>
@@ -103,7 +103,7 @@ class App extends Component {
               <div>
                 <button value="0" onClick={this.getValue}> 0 </button>
                 <button value="." onClick={this.getValue}> . </button>
-                <button onClick={this.getResult} class="eval"> = </button>
+                <button onClick={this.getResult} className="eval"> = </button>
                 <button value="/" onClick ={this.operation} className="operator"> / </button>
               </div>
             </div>
