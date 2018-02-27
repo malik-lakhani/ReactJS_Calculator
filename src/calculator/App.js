@@ -14,8 +14,8 @@ class App extends Component {
 
   // Calculate the value according to operator
   calculate = () => {
-    const total = parseInt(this.state.total);
-    const current = parseInt(this.state.current);
+    const total = parseFloat(this.state.total);
+    const current = parseFloat(this.state.current);
     const operator = this.state.operator;
     switch (operator) {
       case '+':
