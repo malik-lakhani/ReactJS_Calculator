@@ -57,7 +57,7 @@ class App extends Component {
   getValue = (e) => {
     const value = e.target.attributes.getNamedItem('value').value;
     this.setState(() => {
-      return { current: value };
+      return { current: this.state.current += value };
     });
   }
 
