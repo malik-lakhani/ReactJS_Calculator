@@ -59,15 +59,19 @@ class App extends Component {
     });
   }
 
-  // geet the value from buttons
+  // get the value from buttons
   getValue = (e) => {
     const value = e.target.attributes.getNamedItem('value').value;
-    if(this.state.current == 0){
+    if(this.state.current === 0){
       this.setState({
         current: value
       });
     } else {
-      this.setState({ current: this.state.current += value});
+      let currentValue = this.state.current;
+      currentValue += value;
+      this.setState({
+        current: currentValue
+      });
     }
   }
 
