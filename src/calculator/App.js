@@ -13,10 +13,8 @@ class App extends Component {
   }
 
   // Calculate the value according to operator
-  calculate = () => {
-    const total = parseFloat(this.state.total);
-    const current = parseFloat(this.state.current);
-    const operator = this.state.operator;
+  calculate = (total, current, operator) => {
+    let divide;
     switch (operator) {
       case '+':
         return total + current;
@@ -28,7 +26,12 @@ class App extends Component {
         return total * current;
         break;
       case '/':
-        return total / current;
+        divide = total / current;
+        if (!isNaN(divide)) {
+          return divide;
+        } else {
+          return 'Error';
+        }
         break;
       default:
         return 0;
@@ -47,18 +50,29 @@ class App extends Component {
 
   // Display the total result
   getResult = () => {
+    const total = parseFloat(this.state.total);
+    const current = parseFloat(this.state.current);
+    const operator = this.state.operator;
     this.setState({
-      total: this.calculate(),
+      total: this.calculate(total, current, operator),
       current: 0
     });
   }
 
-  // geet the value from buttons
+  // get the value from buttons
   getValue = (e) => {
     const value = e.target.attributes.getNamedItem('value').value;
-    this.setState(() => {
-      return { current: this.state.current += value };
-    });
+    if(this.state.current === 0){
+      this.setState({
+        current: value
+      });
+    } else {
+      let currentValue = this.state.current;
+      currentValue += value;
+      this.setState({
+        current: currentValue
+      });
+    }
   }
 
   // All value set to 0
